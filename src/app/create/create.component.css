@@ -1,0 +1,75 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 150px auto;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-button-row {
+  margin: 0 auto;
+}
+
+.alert {
+  position: absolute;
+  top: 100px;
+  left: 30px;
+  display: flex;
+  background: #ff867c;
+  padding: 20px 40px;
+  margin: 40px auto;
+  max-width: 500px;
+  min-width: 420px;
+  border-radius: 5px;
+  border-left: 10px solid #e53935;
+}
+
+.success {
+  background: #76d275;
+  border-left: #43a047;
+}
+
+.alert .fa-circle-exclamation {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #e53935;
+  font-size: 30px;
+}
+
+.success .fa-circle-exclamation {
+  color: #43a047;
+}
+
+.alert .msg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 20px;
+  font-size: 18px;
+  color: black;
+}
+
+.alert .close-btn {
+  position: relative;
+  color: #e53935;
+  font-size: 25px;
+  left: 400px;
+  cursor: pointer;
+}
+
+.success .close-btn {
+  color: #43a047;
+}
+
+.alert .close-btn:hover {
+  color: #ab000d;
+}
+
+.success .close-btn:hover {
+  color: #00701a;
+}

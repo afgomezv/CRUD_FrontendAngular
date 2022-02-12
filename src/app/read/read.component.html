@@ -1,0 +1,74 @@
+<div>
+
+  <!-- filter -->
+
+  <mat-form-field appearance="standard" class="filter">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="search song" #input>
+  </mat-form-field>
+
+  <!-- show message -->
+
+  <div *ngIf="successmsg" class = 'alert success'>
+    <span class = "fas fa-circle-exclamation"></span>
+      <p class = "msg">{{successmsg}}</p>
+    <div class = "close-btn">
+      <span (click)="btnClose" class = "fas fa-circle-xmark"></span>
+    </div>
+  </div>
+
+  <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="readData">
+
+  <!-- Id Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell  *matCellDef="let readData"> {{readData.id}} </td>
+  </ng-container>
+
+  <!-- Artist Column -->
+  <ng-container matColumnDef="artist">
+    <th mat-header-cell *matHeaderCellDef> Artist </th>
+    <td mat-cell *matCellDef="let readData"> {{readData.artist}} </td>
+  </ng-container>
+
+  <!-- Song Column -->
+  <ng-container matColumnDef="song">
+    <th mat-header-cell *matHeaderCellDef> Song </th>
+    <td mat-cell *matCellDef="let readData"> {{readData.song}} </td>
+  </ng-container>
+
+  <!-- Time Column -->
+  <ng-container matColumnDef="time">
+    <th mat-header-cell *matHeaderCellDef> Time </th>
+    <td mat-cell *matCellDef="let readData"> {{readData.time}} </td>
+  </ng-container>
+
+  <!-- Album Column -->
+  <ng-container matColumnDef="album">
+    <th mat-header-cell *matHeaderCellDef> Album </th>
+    <td mat-cell *matCellDef="let readData"> {{readData.album}} </td>
+  </ng-container>
+
+  <!-- Action Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;">Actions</th>
+    <td mat-cell *matCellDef="let readData" style="text-align: center;">
+        <button mat-raised-button color="warn" (click)="deleteID(readData.id)">Delete</button>
+          &nbsp; 
+        <button [routerLink]="['/create', readData.id]" mat-raised-button color="accent">Update</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+  </mat-paginator>
+
+  </div>
+
+</div>
+
+

@@ -1,0 +1,53 @@
+<div>
+  
+  <!-- show erromsg -->
+  <div *ngIf="errormsg" class = 'alert'>
+    <span class = "fas fa-circle-exclamation"></span>
+    <p class = "msg">{{errormsg}}</p>
+    <div class = "close-btn">
+      <span (click)="btnClose" class = "fas fa-circle-xmark"></span>
+    </div>
+  </div>
+
+    <!-- show successmsg -->
+  <div *ngIf="successmsg" class = 'alert success'>
+    <span class = "fas fa-circle-exclamation"></span>
+    <p class = "msg">{{successmsg}}</p>
+    <div class = "close-btn">
+      <span (click)="btnClose" class = "fas fa-circle-xmark"></span>
+    </div>
+  </div>
+
+  <form class="example-form" [formGroup]="songForm">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>artist</mat-label>
+      <input matInput formControlName="artist">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>song</mat-label>
+      <input matInput formControlName="song">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill"  *ngIf="!getparamid">
+      <mat-label>time</mat-label>
+      <input  matInput formControlName="time" readonly="false">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width"  *ngIf="!getparamid">
+      <mat-label>album</mat-label>
+      <input matInput formControlName="album">
+    </mat-form-field>
+
+    
+    <div class="example-button-row" *ngIf="!getparamid" (click)="songSubmit()">
+      <button mat-raised-button color="primary">Create</button>
+    </div>
+
+    <div class="example-button-row" *ngIf="getparamid"  (click) = "songUpdate()">
+      <button mat-raised-button color="accent">Update</button>
+    </div>
+    
+  </form>
+</div>
+  |
